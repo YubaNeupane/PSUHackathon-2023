@@ -3,6 +3,7 @@ import cors from "cors";
 import express from "express";
 
 import userRoutes from "./routes/users.js";
+import chatRoutes from "./routes/chat.js";
 
 const app = express();
 // const server = http.creatServer(app);
@@ -14,5 +15,6 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 
 // Route for user
 app.use("/api/v1/user", userRoutes);
+app.use("/api/v1/chat", chatRoutes);
 
 export default app;
