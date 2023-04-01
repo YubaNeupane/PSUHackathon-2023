@@ -10,7 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchCurrentUser } from "../redux/actions/userActions";
 import notify from "../utils/Toast";
 import Spinner from "./Spinner";
-import SetNewPasswordPage from "../pages/SetNewPassword.js/SetNewPasswordPage";
+import SetNewPasswordPage from "../pages/SetNewPassword/SetNewPasswordPage.js";
 
 export default function UnauthenticatedRoutes() {
   const dispatch = useDispatch();

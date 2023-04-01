@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router";
 import { Routes, Route, useLocation } from "react-router-dom";
-import SetNewPasswordPage from "../SetNewPassword.js/SetNewPasswordPage";
+import SetNewPasswordPage from "../SetNewPassword/SetNewPasswordPage";
 import Dashboard from "./Dashboard";
 
 export default function DashboardRoutes({ currentUser }) {
