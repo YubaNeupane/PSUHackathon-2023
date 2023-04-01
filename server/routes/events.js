@@ -1,8 +1,16 @@
 import express from "express";
-import { chat } from "../controller/chat/chat.js";
+import { 
+    getEvents,
+    addEvent,
+    getEventId
+  } from "../controller/event/event.js";
 import { authMiddleware } from "../middleware/auth";
 
+const router = express.Router();
 
-router.get("/events", authMiddleware, getEvents);
-router.get("/events/:eventId", authMiddleware, getEventId);
+//GET [Events]
+router.get("/", authMiddleware, getEvents);
+router.get("/:eventId", authMiddleware, getEventId);
 
+//POST [Events]
+router.post("/", authMiddleware, addEvent);
