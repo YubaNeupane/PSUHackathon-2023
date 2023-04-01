@@ -1,6 +1,5 @@
 import axios from "axios";
 
-const baseURL = process.env.REACT_APP_API_URL;
 
 function getTokenFromLocalStorage() {
   return localStorage.getItem("authToken")
@@ -9,7 +8,7 @@ function getTokenFromLocalStorage() {
 }
 
 const axiosInstance = axios.create({
-  baseURL: baseURL,
+  baseURL: "http://localhost:5001/api/v1",
   headers: {
     headers: { Authorization: `Bearer ${getTokenFromLocalStorage()}` },
   },
