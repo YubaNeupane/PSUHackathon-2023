@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 //import { Link } from "react-router-dom";
-import LoginSignupInput from "../../components/LoginSignupInput";
-import LoginSignupButton from "../../components/LoginSignupButton";
+import LoginSignupInput from "./../../components/LoginSignupInput";
+import LoginSignupButton from "./../../components/LoginSignupButton";
 import { errorFound } from "../../redux/reducers/userSlice";
 import { resetWithNewPassword } from "../../redux/actions/userActions";
 import { useDispatch, useSelector } from "react-redux";
