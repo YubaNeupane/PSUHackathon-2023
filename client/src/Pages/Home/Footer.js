@@ -8,12 +8,12 @@ export default function Footer() {
     >
       <div>
         <h3 className="text-black font-extrabold ">
-          SWENG 480 - Senior Design - Team 3
+          Spring HackPSU 2023
         </h3>
       </div>
       <div>
         <h3 className="text-black font-extrabold ">
-          Yuba Neupane, Luke Sloan, Abdulla Iznurov, Mateen Shaik
+          Yuba Neupane, Mateen Shaik, Kevin Muirhead, Ghana Chuwan
         </h3>
       </div>
     </div>

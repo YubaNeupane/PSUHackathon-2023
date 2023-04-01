@@ -10,7 +10,7 @@ import DirectMessageBar from "./Components/DirectMessageBar";
 
 export default function Dashboard() {
   return (
-    <div className="flex">
+    <div className="flex ">
       <Sidebar />
       <Routes>
         <Route path="/directMessage" element={<DirectMessageBar />} />
