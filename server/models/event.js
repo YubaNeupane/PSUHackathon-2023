@@ -8,7 +8,9 @@ const eventSchema = mongoose.Schema({
   creationData: { type: String, require: true, default: Date.now },
   date: { type: Date, require: true },
   time: {type: time, require: true},
-  //location: {type: Location, require: true},
+  location: {
+    lat: {type: Number, require: true},
+    lng: {type: Number, require: true}},
   description: {type: String, required: true},
   servers: [{ name: { type: String }, id: { type: mongoose.Schema.ObjectId } }],
   directMessages: [
