@@ -33,7 +33,7 @@ export default function Sidebar({ setEventPressed }) {
         <SideBarIcon icon={therapist} text={"AI Therapist"} />
       </Link>
       <Divider />
-      <Link to="/Team 3/adda">
+      <Link to="/Chat Server/sdfsa">
         <SideBarIcon icon={chatServer} text={"Chat Server"} />
       </Link>
       <Link to="/events">

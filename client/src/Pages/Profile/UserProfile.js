@@ -58,10 +58,10 @@ export default function UserProfile({ open, setOpen }) {
                   disabled={true}
                   variant="standard"
                   InputLabelProps={{
-                    className: "text-black dark:text-white",
+                    className: "text-gray-600 dark:text-white",
                   }}
                   InputProps={{
-                    className: "text-black dark:text-white",
+                    className: "text-gray-600 dark:text-white",
                   }}
                 />
                 <TextField
@@ -101,8 +101,9 @@ export default function UserProfile({ open, setOpen }) {
                 {/* <Button onClick={handleOpen}>Change Password</Button> */}
               </div>
               <DialogActions>
-                <Button onClick={handleClose}>Close</Button>
-                <Button onClick={handleClose}>LogOut</Button>
+                <Button className="  dark:bg-darkGreen" onClick={handleClose}>
+                  Close
+                </Button>
               </DialogActions>
             </div>
           </div>
