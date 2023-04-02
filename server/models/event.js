@@ -9,9 +9,7 @@ const eventSchema = mongoose.Schema({
   date: { type: Date, require: true },
   eventType: {type: Array, require: true},
   category: {type: Array, require: true},
-  /*location: {
-    lat: {type: Number, require: true},
-    lng: {type: Number, require: true}},*/
+  location: { type: String, require: true},
   description: {type: String, required: true},
   servers: [{ name: { type: String }, id: { type: mongoose.Schema.ObjectId } }],
   directMessages: [
