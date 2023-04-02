@@ -6,6 +6,9 @@ import { Routes, Route } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import DirectMessageBar from "./Components/DirectMessageBar";
 import EventFilter from "../events/components/EventFilter";
+import EventCard from "../events/components/EventCard"
+
+
 
 //import Socketlist from "./Components/Socketlist";
 // import useDarkMode from "../../utils/useDarkMode";
@@ -27,6 +30,8 @@ export default function Dashboard() {
         <Route path="*" element={<DirectMessageBar />} />
       </Routes>
       {location.pathname !== "/events" ? <ContentContainer /> : <></>}
+      {location.pathname === "/events" ? <EventCard /> : <></>}
+
     </div>
   );
 }
