@@ -20,7 +20,7 @@ router.post("/password-reset", passwordResetLinkSender);
 router.post("/password-reset/:userId/:token", passwordResetter);
 
 //Get [Chat Threads]
-router.get("/:id/thread/:threadId", authMiddleware, getUser, getThread);
+router.get("/:id/thread/:threadId", authMiddleware, getUser);
 
 
 //GET [CURRENT LOGIN USER and OTHER OTHERS]
