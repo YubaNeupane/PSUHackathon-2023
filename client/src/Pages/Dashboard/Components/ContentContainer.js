@@ -1,5 +1,5 @@
 import TopNavigation from "./TopNavigation";
-import { BsPlusCircleFill } from "react-icons/bs";
+import { FiSend } from "react-icons/fi";
 import { useState } from "react";
 
 const ContentContainer = () => {
@@ -102,7 +102,6 @@ const BottomBar = ({ handleSendMessage }) => {
   const [message, setMessage] = useState("");
   return (
     <div className="bottom-bar">
-      <PlusIcon />
       <input
         type="text"
         placeholder="Enter message..."
@@ -116,6 +115,7 @@ const BottomBar = ({ handleSendMessage }) => {
           }
         }}
       />
+      <SendIcon />
     </div>
   );
 };
@@ -142,8 +142,8 @@ const Post = ({ name, timestamp, text }) => {
   );
 };
 
-const PlusIcon = () => (
-  <BsPlusCircleFill
+const SendIcon = () => (
+  <FiSend
     size="22"
     className="text-green-500 dark:shadow-lg mx-2 dark:text-primary"
   />

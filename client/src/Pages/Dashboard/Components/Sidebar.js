@@ -18,7 +18,7 @@ export default function Sidebar() {
   return (
     <div className="fixed top-0 left-0 h-screen bg-white dark:bg-darkGreen drop-shadow-lg w-18 m-0 flex flex-col z-30">
       <Link to="/directMessage">
-        <SideBarIcon icon={AppLogo} />
+        <SideBarIcon icon={AppLogo} text={"ChatGPT"} />
       </Link>
       <Divider />
       <Link to="/Team 3/adda">
