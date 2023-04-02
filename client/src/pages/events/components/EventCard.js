@@ -1,9 +1,12 @@
 import TopNavigation from "../../Dashboard/Components/EventNavigation";
 import { useSelector } from "react-redux";
 import Popup from "../components/Popup";
+import { useState } from "react";
 
 const EventCard = () => {
   const events = useSelector((state) => Object.values(state.events.events));
+
+  const [toggleModel, showModel] = useState(false);
 
   return (
     <div className="content-container w-full  left-[22.5rem] top-0">
@@ -11,7 +14,10 @@ const EventCard = () => {
 
       <div className="event-container">
         {events.map((item) => (
-          <div className="event-card h-fit">
+          <div
+            className="event-card h-fit"
+            onClick={() => console.log(item._id)}
+          >
             <img
               className="w-full"
               src="https://1000logos.net/wp-content/uploads/2017/11/penn-state-logo.png"
