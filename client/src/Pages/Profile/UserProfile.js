@@ -34,55 +34,79 @@ export default function UserProfile({ open, setOpen }) {
       />
 
       <Dialog open={open} onClose={handleClose}>
-        <DialogTitle className="flex flex-col items-center pb-10">
-          View Profile
-        </DialogTitle>
-        <div className="flex flex-col items-center pb-10">
-          <div class="relative inline-flex items-center justify-center w-20 h-20 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
-            <span class="font-medium text-gray-600 dark:text-gray-300 mr-2">
-              JL
-            </span>
+        <div className="text-black dark:text-white dark:bg-gray-900 flex flex-row">
+          <div>
+            <DialogTitle className="flex flex-col items-center pb-10">
+              View Profile
+            </DialogTitle>
+            <div className="flex flex-col items-center pb-10">
+              <div class="relative inline-flex items-center justify-center w-20 h-20 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
+                <span class="font-medium text-gray-600 dark:text-gray-300 mr-2">
+                  JL
+                </span>
+              </div>
+            </div>
+            <div>
+              <DialogContent>
+                <TextField
+                  autoFocus
+                  margin="dense"
+                  id="FullNameField"
+                  label="Full Name:"
+                  type="text"
+                  fullWidth
+                  disabled={true}
+                  variant="standard"
+                  InputLabelProps={{
+                    className: "text-black dark:text-white",
+                  }}
+                  InputProps={{
+                    className: "text-black dark:text-white",
+                  }}
+                />
+                <TextField
+                  autoFocus
+                  margin="dense"
+                  id="EmailField"
+                  label="Email:"
+                  type="text"
+                  fullWidth
+                  variant="standard"
+                  disabled={true}
+                  InputLabelProps={{
+                    className: "text-black dark:text-white",
+                  }}
+                  InputProps={{
+                    className: "text-black dark:text-white",
+                  }}
+                />
+                <TextField
+                  autoFocus
+                  margin="dense"
+                  id="UserNameField"
+                  label="User Name:"
+                  type="text"
+                  fullWidth
+                  variant="standard"
+                  disabled={true}
+                  InputLabelProps={{
+                    className: "text-black dark:text-white",
+                  }}
+                  InputProps={{
+                    className: "text-black dark:text-white",
+                  }}
+                />
+              </DialogContent>
+              <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
+                {/* <Button onClick={handleOpen}>Change Password</Button> */}
+              </div>
+              <DialogActions>
+                <Button onClick={handleClose}>Close</Button>
+                <Button onClick={handleClose}>LogOut</Button>
+              </DialogActions>
+            </div>
           </div>
         </div>
-        <DialogContent>
-          <TextField
-            autoFocus
-            margin="dense"
-            id="FullNameField"
-            label="Full Name:"
-            type="text"
-            fullWidth
-            variant="standard"
-            disabled={true}
-          />
-          <TextField
-            autoFocus
-            margin="dense"
-            id="EmailField"
-            label="Email:"
-            type="text"
-            fullWidth
-            variant="standard"
-            disabled={true}
-          />
-          <TextField
-            autoFocus
-            margin="dense"
-            id="UserNameField"
-            label="User Name:"
-            type="text"
-            fullWidth
-            variant="standard"
-            disabled={true}
-          />
-        </DialogContent>
-        <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
-          {/* <Button onClick={handleOpen}>Change Password</Button> */}
-        </div>
-        <DialogActions>
-          <Button onClick={handleClose}>Close</Button>
-          <Button onClick={handleClose}>LogOut</Button>
-        </DialogActions>
       </Dialog>
     </div>
   );
