@@ -28,17 +28,15 @@ export default function Sidebar({ setEventPressed }) {
       </Link>
       <SideBarIcon icon={AppLogo} />
 
-
-        <div onClick={handleLogout}>
-          <SideBarIcon icon={FiLogOut} text="Logout" />
-        </div>
-
-        <Link to="/events">
-          <div className="fixed bottom-0 left-0">
-            <SideBarIcon icon={AppLogo} text="Event" />
-          </div>
-        </Link>
+      <div onClick={handleLogout}>
+        <SideBarIcon icon={FiLogOut} text="Logout" />
       </div>
+
+      <Link to="/events">
+        <div className="fixed bottom-0 left-0">
+          <SideBarIcon icon={AppLogo} text="Event" />
+        </div>
+      </Link>
     </div>
   );
 }
