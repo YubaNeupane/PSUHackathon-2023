@@ -1,18 +1,46 @@
 import TopNavigation from "./TopNavigation";
 import { FiSend } from "react-icons/fi";
 import { useState } from "react";
+import moment from "moment";
+import { useParams } from "react-router";
+import { useSelector } from "react-redux";
 
-const ContentContainer = () => {
+const ContentContainer = ({ location, sendMe, sendChatGptMessage }) => {
   const handleSendMessage = (message) => {
     if (message.length === 0) return;
-    console.log(message);
+
+    const loc = location.pathname.split("/");
+
+    if (loc[loc.length - 1] === "directMessage") {
+      sendChatGptMessage({ historyId: null, message: message });
+    } else if (loc[loc.length - 2] === "directMessage") {
+      sendChatGptMessage({ historyId: loc[loc.length - 1], message: message });
+    }
   };
+
+  const chats = useSelector((state) => Object.values(state.chat.chats));
 
   return (
     <div className="content-container   left-[22.5rem] top-0">
       <TopNavigation />
-      <div className="content-list">
-        <Post
+      <div className="content-list mt-16 ">
+        {
+          <Post
+            name="ChatGPT"
+            timestamp=""
+            text={`Hello! I am able to give you any events in the area. If you are feeling down just talk. Do you need help with something? I can help you. I am here to help, type something that is in your mind...`}
+            className="w-full"
+          />
+        }
+
+        {chats.map((chat) => (
+          <Post
+            name={chat.role === "assistant" ? "ChatGPT" : "Me"}
+            timestamp={moment(chat.createdAt).fromNow()}
+            text={chat.content}
+          />
+        ))}
+        {/* <Post
           name="Ada"
           timestamp="one week ago"
           text={`Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit
@@ -91,7 +119,7 @@ const ContentContainer = () => {
           amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur
           adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem
           ipsum dolor sit amet consectetur adipisicing elit.`}
-        />
+        /> */}
       </div>
       <BottomBar handleSendMessage={handleSendMessage} />
     </div>
@@ -125,7 +153,7 @@ const Post = ({ name, timestamp, text }) => {
     <div className={"post"}>
       <div className="avatar-wrapper">
         <img
-          src={`https://avatars.dicebear.com/api/open-peeps/${seed}.svg`}
+          src={`https://avatars.dicebear.com/api/open-peeps/${111}.svg`}
           alt=""
           className="avatar"
         />
