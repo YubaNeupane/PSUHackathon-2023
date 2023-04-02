@@ -19,6 +19,10 @@ router.post("/signup", signup);
 router.post("/password-reset", passwordResetLinkSender);
 router.post("/password-reset/:userId/:token", passwordResetter);
 
+//Get [Chat Threads]
+router.get("/:id/thread/:threadId", authMiddleware, getUser, getThread);
+
+
 //GET [CURRENT LOGIN USER and OTHER OTHERS]
 router.get("/", authMiddleware, getSignedInUser);
 router.get("/:id", authMiddleware, getUser);
