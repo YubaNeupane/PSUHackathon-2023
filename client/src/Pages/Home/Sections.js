@@ -65,12 +65,12 @@ export default function Sections({ data, id }) {
           <div
             className={`${
               imageLeft ? "text-darkGreen" : "text-orange"
-            } font-extrabold lg:text-[35px] text-[35px] drop-shadow-2xl`}
+            } font-extrabold lg:text-[75px] text-[40px] drop-shadow-2xl`}
           >
             {title}
           </div>
           <div
-            className={`lg:text-[20px] sm-text-[15px] ${
+            className={`lg:text-[32px] text-[20px] ${
               imageLeft ? "text-black" : "text-white"
             }`}
           >
@@ -97,7 +97,7 @@ export default function Sections({ data, id }) {
             {title}
           </div>
           <div
-            className={`lg:text-[20px] sm-text-[15px] text-center ${
+            className={`text-[20px] text-center ${
               imageLeft ? "text-black" : "text-white"
             }`}
           >

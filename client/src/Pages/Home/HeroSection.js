@@ -14,15 +14,15 @@ export default function HeroSection() {
       <div className="pt-32 h-full">
         <div className="flex flex-col justify-center items-center text-white">
           <div className="py-0 lg:drop-shadow-2xl text-[40px] md:text-[75px] font-extrabold text-yellow text-center">
-            Welcome To GroupHive
+            WELCOME TO...
           </div>
           <div className="md:w-1/2 text-center sm:w-full lg:text-[20px] sm:text-[15px] px-5">
-            Our Mental Health App is designed for students who may struggle with
-            daily activities or feel lonely. With our AI therapist, chat server
-            for socializing, and Find Events feature, you'll have the tools to
-            support your mental wellbeing. Join our community for personalized
-            conversations and discover nearby events to improve your mental
-            health. Sign up now to start your journey towards a happier you.
+            Is simply dummy text of the printing and typesetting industry. Lorem
+            Ipsum has been the industry's standard dummy text ever since the
+            1500s, when an unknown printer took a galley of type and scrambled
+            it to make a type specimen book. It has survived not only five
+            centuries, but also the leap into electronic typesetting, remaining
+            essentially unchanged.
           </div>
         </div>
         <div className="flex justify-around items-center">
