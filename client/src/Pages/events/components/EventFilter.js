@@ -9,7 +9,7 @@ const topics = ["tailwind-css", "react"];
 const questions = ["jit-compilation", "purge-files", "dark-mode"];
 const random = ["variants", "plugins"];
 
-  const EventFilter = ({events}) => {
+const EventFilter = ({ events }) => {
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [selectedEventTypes, setSelectedEventTypes] = useState([]);
   const [filteredEvents, setFilteredEvents] = useState(events);
@@ -30,7 +30,9 @@ const random = ["variants", "plugins"];
         setSelectedEventTypes([...selectedEventTypes, event.target.value]);
       } else {
         setSelectedEventTypes(
-          selectedEventTypes.filter((eventType) => eventType !== event.target.value)
+          selectedEventTypes.filter(
+            (eventType) => eventType !== event.target.value
+          )
         );
       }
     }
@@ -40,7 +42,9 @@ const random = ["variants", "plugins"];
     let filtered = events;
 
     if (selectedCategories.length > 0) {
-      filtered = filtered.filter((event) => selectedCategories.includes(event.options));
+      filtered = filtered.filter((event) =>
+        selectedCategories.includes(event.options)
+      );
     }
 
     if (selectedEventTypes.length > 0) {
@@ -95,20 +99,18 @@ const random = ["variants", "plugins"];
           />
         </div>
       </div>
-      <div>
-  {filteredEvents.map((event) => (
-    <div key={event.id}>
-      <h3>{event.name}</h3>
-      <p>{event.description}</p>
-      <p>{event.date}</p>
-      <p>{event.category}</p>
-      <p>{event.eventType}</p>
+      {/* <div>
+        {filteredEvents?.map((event) => (
+          <div key={event.id}>
+            <h3>{event.name}</h3>
+            <p>{event.description}</p>
+            <p>{event.date}</p>
+            <p>{event.category}</p>
+            <p>{event.eventType}</p>
+          </div>
+        ))}
+      </div> */}
     </div>
-  ))}
-</div>
-    </div>
-    
-    
   );
 };
 
