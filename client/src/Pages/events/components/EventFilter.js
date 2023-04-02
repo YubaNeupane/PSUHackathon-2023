@@ -9,11 +9,51 @@ const topics = ["tailwind-css", "react"];
 const questions = ["jit-compilation", "purge-files", "dark-mode"];
 const random = ["variants", "plugins"];
 
-const EventFilter = () => {
+  const EventFilter = ({events}) => {
+  const [selectedCategories, setSelectedCategories] = useState([]);
+  const [selectedEventTypes, setSelectedEventTypes] = useState([]);
+  const [filteredEvents, setFilteredEvents] = useState(events);
+
+  const handleCheckboxChange = (event) => {
+    const { name, checked } = event.target;
+
+    if (name === "category") {
+      if (checked) {
+        setSelectedCategories([...selectedCategories, event.target.value]);
+      } else {
+        setSelectedCategories(
+          selectedCategories.filter((options) => options !== event.target.value)
+        );
+      }
+    } else if (name === "eventType") {
+      if (checked) {
+        setSelectedEventTypes([...selectedEventTypes, event.target.value]);
+      } else {
+        setSelectedEventTypes(
+          selectedEventTypes.filter((eventType) => eventType !== event.target.value)
+        );
+      }
+    }
+  };
+
+  useEffect(() => {
+    let filtered = events;
+
+    if (selectedCategories.length > 0) {
+      filtered = filtered.filter((event) => selectedCategories.includes(event.options));
+    }
+
+    if (selectedEventTypes.length > 0) {
+      filtered = filtered.filter((event) =>
+        selectedEventTypes.includes(event.eventType)
+      );
+    }
+
+    setFilteredEvents(filtered);
+  }, [selectedCategories, selectedEventTypes, events]);
+
   return (
     <div className="channel-bar shadow-lg z-10 fixed w-72 top-0 left-2 -z-3">
-      <ChannelBlock serverName={"Events"} />
-      <div role="searchbox"></div>
       <div className="channel-container">
         <div className="search flex w-full">
           <input className="search-input" type="text" placeholder="Search..." />
@@ -24,16 +64,17 @@ const EventFilter = () => {
             <h5 className="channel-block-cat-text">Category</h5>
           </div>
         </div>
-        <div className="category flex w-full px-5 -mt-4 dark:text-white  rounded-lg pb-2  bg-gray-400 dark:bg-gray-600 text-black">
+        <div className="category flex w-full px-5 -mt-4 dark:text-white rounded-lg pb-2 bg-gray-400 dark:bg-gray-600 text-black">
           <CheckBoxGroup
-            selectedValues={[]}
-            remove={"true"}
+            selectedValues={selectedCategories}
+            handleCheckboxChange={handleCheckboxChange}
+            name="category"
             options={[
-              { value: 0, label: "Academics" },
-              { value: 1, label: "Athletics" },
-              { value: 2, label: "Cultural" },
-              { value: 3, label: "Entertainment" },
-              { value: 4, label: "Food" },
+              { value: "Academics", label: "Academics" },
+              { value: "Athletics", label: "Athletics" },
+              { value: "Cultural", label: "Cultural" },
+              { value: "Entertainment", label: "Entertainment" },
+              { value: "Food", label: "Food" },
             ]}
           />
         </div>
@@ -42,18 +83,32 @@ const EventFilter = () => {
             <h5 className="channel-block-cat-text">Event Type</h5>
           </div>
         </div>
-        <div className="eventType flex w-full px-5 -mt-4 dark:text-white  rounded-lg pb-2  bg-gray-400 dark:bg-gray-600 text-black">
+        <div className="eventType flex w-full px-5 -mt-4 dark:text-white rounded-lg pb-2 bg-gray-400 dark:bg-gray-600 text-black">
           <CheckBoxGroup
-            selectedValues={[]}
-            remove={"true"}
+            selectedValues={selectedEventTypes}
+            handleCheckboxChange={handleCheckboxChange}
+            name="eventType"
             options={[
-              { value: 0, label: "Online" },
-              { value: 1, label: "In-Person" },
+              { value: "Online", label: "Online" },
+              { value: "In-Person", label: "In-Person" },
             ]}
           />
         </div>
       </div>
+      <div>
+  {filteredEvents.map((event) => (
+    <div key={event.id}>
+      <h3>{event.name}</h3>
+      <p>{event.description}</p>
+      <p>{event.date}</p>
+      <p>{event.category}</p>
+      <p>{event.eventType}</p>
     </div>
+  ))}
+</div>
+    </div>
+    
+    
   );
 };
 
