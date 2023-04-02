@@ -24,7 +24,7 @@ const EventFilter = () => {
             <h5 className="channel-block-cat-text">Category</h5>
           </div>
         </div>
-        <div className="category flex w-full px-5 -mt-4 bg-gray-600 text-white  rounded-lg pb-2">
+        <div className="category flex w-full px-5 -mt-4 dark:text-white  rounded-lg pb-2  bg-gray-400 dark:bg-gray-600 text-black">
           <CheckBoxGroup
             selectedValues={[]}
             remove={"true"}
@@ -42,7 +42,7 @@ const EventFilter = () => {
             <h5 className="channel-block-cat-text">Event Type</h5>
           </div>
         </div>
-        <div className="eventType flex w-full px-5 -mt-4 bg-gray-600 text-white  rounded-lg pb-2">
+        <div className="eventType flex w-full px-5 -mt-4 dark:text-white  rounded-lg pb-2  bg-gray-400 dark:bg-gray-600 text-black">
           <CheckBoxGroup
             selectedValues={[]}
             remove={"true"}
