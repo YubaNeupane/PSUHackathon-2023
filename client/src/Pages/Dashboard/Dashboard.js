@@ -6,9 +6,7 @@ import { Routes, Route } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import DirectMessageBar from "./Components/DirectMessageBar";
 import EventFilter from "../events/components/EventFilter";
-import EventCard from "../events/components/EventCard"
-
-
+import EventCard from "../events/components/EventCard";
 
 //import Socketlist from "./Components/Socketlist";
 // import useDarkMode from "../../utils/useDarkMode";
@@ -17,8 +15,6 @@ export default function Dashboard() {
   const [eventPressed, setEventPressed] = useState(false);
 
   const location = useLocation();
-
-  console.log(location);
 
   return (
     <div className="flex ">
@@ -31,7 +27,6 @@ export default function Dashboard() {
       </Routes>
       {location.pathname !== "/events" ? <ContentContainer /> : <></>}
       {location.pathname === "/events" ? <EventCard /> : <></>}
-
     </div>
   );
 }

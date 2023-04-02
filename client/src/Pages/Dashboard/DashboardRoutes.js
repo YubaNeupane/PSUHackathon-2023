@@ -12,6 +12,7 @@ export default function DashboardRoutes({ currentUser }) {
     if (!location.pathname.includes("user/password-reset")) {
       navigate("/");
     }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentUser]);
 
