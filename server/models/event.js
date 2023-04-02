@@ -7,9 +7,11 @@ const eventSchema = mongoose.Schema({
   creatorName: { type: String, require: true },
   creationData: { type: String, require: true, default: Date.now },
   date: { type: Date, require: true },
-  location: {
+  eventType: {type: Array, require: true},
+  category: {type: Array, require: true},
+  /*location: {
     lat: {type: Number, require: true},
-    lng: {type: Number, require: true}},
+    lng: {type: Number, require: true}},*/
   description: {type: String, required: true},
   servers: [{ name: { type: String }, id: { type: mongoose.Schema.ObjectId } }],
   directMessages: [
@@ -18,4 +20,4 @@ const eventSchema = mongoose.Schema({
   admin: { type: mongoose.Schema.ObjectId, default: null },
 });
 
-export default mongoose.model("Event", userSchema);
+export default mongoose.model("Event", eventSchema);

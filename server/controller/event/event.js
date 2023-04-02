@@ -23,7 +23,8 @@ export const getEventId = async(req, res) => {
 };
 
 export const addEvent = async(req, res) => {
-    const {name, creatorName, date, location, description } = res.body;
+    console.log(req.body)
+    const {name, creatorName, date, category, eventType, description } = req.body;
   try{
     if(!name){
         return res
@@ -35,11 +36,7 @@ export const addEvent = async(req, res) => {
         .status(400)
         .json({ error: "Event must have a date" });
     }
-    if(!location){
-        return res
-        .status(400)
-        .json({ error: "Event must have a date" });
-    }
+
     if(!description){
         return res
         .status(400)
@@ -49,11 +46,13 @@ export const addEvent = async(req, res) => {
         name: name,
         creatorName: creatorName,
         date: date,
-        location: location,
+        category: category,
+        eventType: eventType,
         description: description,
         });
-    return res.status(201).json({result});
+    return res.status(201).json(result);
     } catch (error) {
+        console.log(error)
         res.status(500).json({ error: "Something went wrong" });
     }
 };
