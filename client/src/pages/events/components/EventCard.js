@@ -1,14 +1,9 @@
 import TopNavigation from "../../Dashboard/Components/EventNavigation";
 import { useSelector } from "react-redux";
+import Popup from "../components/Popup";
 
 const EventCard = () => {
   const events = useSelector((state) => Object.values(state.events.events));
-
-import Popup from "../components/Popup";
-import { useState } from "react";
-
-const EventCard = () => {
-  const [showModel, toggleModel] = useState(false);
 
   return (
     <div className="content-container w-full  left-[22.5rem] top-0">
