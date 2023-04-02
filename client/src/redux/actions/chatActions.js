@@ -14,6 +14,7 @@ export const chatWithChatGPT =
   ({ historyId, message }) =>
   async (dispatch) => {
     try {
+      dispatch(dispatchEvents.startChat({ message: message }));
       const { data } = await API.chat({ historyId, message });
       dispatch(dispatchEvents.chat({ ...data }));
     } catch (error) {

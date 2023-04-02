@@ -4,6 +4,7 @@ import { useState } from "react";
 import moment from "moment";
 import { useParams } from "react-router";
 import { useSelector } from "react-redux";
+import Spinner from "../../../components/Spinner";
 
 const ContentContainer = ({ location, sendMe, sendChatGptMessage }) => {
   const handleSendMessage = (message) => {
@@ -19,6 +20,7 @@ const ContentContainer = ({ location, sendMe, sendChatGptMessage }) => {
   };
 
   const chats = useSelector((state) => Object.values(state.chat.chats));
+  const isMessaging = useSelector((state) => state.chat.isMessaging);
 
   return (
     <div className="content-container   left-[22.5rem] top-0">
@@ -33,13 +35,26 @@ const ContentContainer = ({ location, sendMe, sendChatGptMessage }) => {
           />
         }
 
-        {chats.map((chat) => (
+        {chats.map((chat, i) => (
           <Post
             name={chat.role === "assistant" ? "ChatGPT" : "Me"}
+            key={i}
             timestamp={moment(chat.createdAt).fromNow()}
             text={chat.content}
           />
         ))}
+
+        {isMessaging ? (
+          <div className={"post"}>
+            <div className="post-content">
+              <p className="post-owner">
+                <Spinner />
+              </p>
+            </div>
+          </div>
+        ) : (
+          <></>
+        )}
         {/* <Post
           name="Ada"
           timestamp="one week ago"

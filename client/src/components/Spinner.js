@@ -6,10 +6,14 @@ const Spinner = ({ large = false }) => {
   }
 
   return (
-    <div className="flex justify-center items-center">
-      <div className={`${circleCommonClasses} mr-1 animate-bounce `}></div>
-      <div className={`${circleCommonClasses} mr-1 animate-bounce200`}></div>
-      <div className={`${circleCommonClasses} animate-bounce400`}></div>
+    <div className="flex">
+      <div
+        className={`${circleCommonClasses} mr-1 animate-bounce w-3 h-3`}
+      ></div>
+      <div
+        className={`${circleCommonClasses} mr-1 animate-bounce200 w-3 h-3`}
+      ></div>
+      <div className={`${circleCommonClasses} animate-bounce400 w-3 h-3`}></div>
     </div>
   );
 };
