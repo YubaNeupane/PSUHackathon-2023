@@ -119,8 +119,9 @@ export default function FormDialog() {
                 label=""
                 type="datetime-local"
                 fullWidth
-                value={new Date(data.time)}
-                onChange={(e) => setData({ ...data, time: e.target.value })}
+                onChange={(e) =>
+                  setData({ ...data, time: new Date(e.target.value) })
+                }
                 variant="filled"
                 className="text-white dark:bg-blue text-white"
                 sx={{

@@ -2,6 +2,7 @@ import TopNavigation from "../../Dashboard/Components/EventNavigation";
 import { useSelector } from "react-redux";
 import Popup from "../components/Popup";
 import { useState } from "react";
+import moment from "moment";
 
 const EventCard = () => {
   const events = useSelector((state) => Object.values(state.events.events));
@@ -61,8 +62,9 @@ const EventCard = () => {
                 <p className="event-card-text overflow-hidden whitespace max-w-[600px]">
                   {item.description}
                 </p>
-                <p className="event-card-text">Date: {item.date}</p>
-                <p className="event-card-text">Time: {item.date}</p>
+                <p className="event-card-text">
+                  Date: {moment(item.time).format("llll")}
+                </p>
                 <p className="event-card-text pb-0">
                   {item.category?.map((cat) => (
                     <span class="event-card-tag">{cat}</span>
