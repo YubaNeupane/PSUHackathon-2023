@@ -18,16 +18,16 @@ export default function Sidebar({ setEventPressed }) {
   };
 
   return (
-    <div>
-      <div className="fixed top-0 left-0 h-screen bg-white dark:bg-darkGreen drop-shadow-lg w-18 m-0 flex flex-col z-30">
-        <Link to="/directMessage">
-          <SideBarIcon icon={AppLogo} />
-        </Link>
-        <Divider />
-        <Link to="/Team 3/adda">
-          <SideBarIcon icon={AppLogo} text={"Team 3"} />
-        </Link>
-        <SideBarIcon icon={AppLogo} />
+    <div className="fixed top-0 left-0 h-screen bg-white dark:bg-darkGreen drop-shadow-lg w-18 m-0 flex flex-col z-30">
+      <Link to="/directMessage">
+        <SideBarIcon icon={AppLogo} text={"ChatGPT"} />
+      </Link>
+      <Divider />
+      <Link to="/Team 3/adda">
+        <SideBarIcon icon={AppLogo} text={"Team 3"} />
+      </Link>
+      <SideBarIcon icon={AppLogo} />
+
 
         <div onClick={handleLogout}>
           <SideBarIcon icon={FiLogOut} text="Logout" />
