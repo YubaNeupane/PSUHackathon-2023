@@ -7,7 +7,6 @@ const eventSchema = mongoose.Schema({
   creatorName: { type: String, require: true },
   creationData: { type: String, require: true, default: Date.now },
   date: { type: Date, require: true },
-  time: {type: time, require: true},
   location: {
     lat: {type: Number, require: true},
     lng: {type: Number, require: true}},

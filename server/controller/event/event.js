@@ -23,7 +23,7 @@ export const getEventId = async(req, res) => {
 };
 
 export const addEvent = async(req, res) => {
-    const {name, creatorName, date, time, location, description } = res.body;
+    const {name, creatorName, date, location, description } = res.body;
   try{
     if(!name){
         return res
@@ -34,11 +34,6 @@ export const addEvent = async(req, res) => {
         return res
         .status(400)
         .json({ error: "Event must have a date" });
-    }
-    if(!time){
-        return res
-        .status(400)
-        .json({ error: "Event must have a time" });
     }
     if(!location){
         return res
@@ -53,12 +48,11 @@ export const addEvent = async(req, res) => {
     const result = await EventModal.create({
         name: name,
         creatorName: creatorName,
-        time: time,
         date: date,
         location: location,
         description: description,
         });
-    return res.status(201).json({ result});
+    return res.status(201).json({result});
     } catch (error) {
         res.status(500).json({ error: "Something went wrong" });
     }

@@ -14,3 +14,5 @@ router.get("/:eventId", authMiddleware, getEventId);
 
 //POST [Events]
 router.post("/", authMiddleware, addEvent);
+
+export default router;
