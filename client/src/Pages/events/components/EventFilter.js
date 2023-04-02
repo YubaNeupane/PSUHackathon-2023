@@ -2,14 +2,8 @@ import { useState, useEffect } from "react";
 import { BsHash } from "react-icons/bs";
 import { FaChevronDown, FaChevronRight, FaPlus } from "react-icons/fa";
 import { useParams } from "react-router";
-import {
-  FaSearch,
-  FaHashtag,
-  FaRegBell,
-  FaUserCircle,
-  FaMoon,
-  FaSun,
-} from "react-icons/fa";
+import { FaSearch } from "react-icons/fa";
+import CheckBoxGroup from "./CheckBoxGroup";
 
 const topics = ["tailwind-css", "react"];
 const questions = ["jit-compilation", "purge-files", "dark-mode"];
@@ -25,17 +19,39 @@ const EventFilter = () => {
           <input className="search-input" type="text" placeholder="Search..." />
           <FaSearch size="18" className="text-secondary my-auto" />
         </div>
-        <div
-          className="category flex w-full"
-          text-accent
-          text-opacity-80
-          my-auto
-          mr-1
-        >
-          <h1>Category</h1>
+        <div className="categoryBox flex w-full">
+          <div className="channel-block">
+            <h5 className="channel-block-cat-text">Category</h5>
+          </div>
         </div>
-
-        <Dropdown header="Random" selections={random} />
+        <div className="category flex w-full px-5 -mt-4 bg-gray-600 text-white  rounded-lg pb-2">
+          <CheckBoxGroup
+            selectedValues={[]}
+            remove={"true"}
+            options={[
+              { value: 0, label: "Academics" },
+              { value: 1, label: "Athletics" },
+              { value: 2, label: "Cultural" },
+              { value: 3, label: "Entertainment" },
+              { value: 4, label: "Food" },
+            ]}
+          />
+        </div>
+        <div className="eventTypeBox flex w-full">
+          <div className="channel-block">
+            <h5 className="channel-block-cat-text">Event Type</h5>
+          </div>
+        </div>
+        <div className="eventType flex w-full px-5 -mt-4 bg-gray-600 text-white  rounded-lg pb-2">
+          <CheckBoxGroup
+            selectedValues={[]}
+            remove={"true"}
+            options={[
+              { value: 0, label: "Online" },
+              { value: 1, label: "In-Person" },
+            ]}
+          />
+        </div>
       </div>
     </div>
   );
