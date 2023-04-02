@@ -2,6 +2,7 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import UserModal from "../../models/user.js";
 import passwordResetTokenModal from "../../models/passwordResetToken.js";
+import sendEmail from "../../utils/sendEmail.js";
 
 export const signin = async (req, res) => {
   const { email, password } = req.body;
@@ -159,6 +160,7 @@ export const passwordResetLinkSender = async (req, res) => {
     }
   } catch (error) {
     res.status(500).json({ error: "Something went wrong" });
+    console.log(error);
   }
 };
 
