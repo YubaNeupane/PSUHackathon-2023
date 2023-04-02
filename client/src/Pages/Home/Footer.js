@@ -7,9 +7,7 @@ export default function Footer() {
       id="footer"
     >
       <div>
-        <h3 className="text-black font-extrabold ">
-          Spring HackPSU 2023
-        </h3>
+        <h3 className="text-black font-extrabold ">Spring HackPSU 2023</h3>
       </div>
       <div>
         <h3 className="text-black font-extrabold ">
