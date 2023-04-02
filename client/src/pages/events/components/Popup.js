@@ -6,6 +6,7 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
+import { dark } from "@mui/material/styles/createPalette";
 
 export default function FormDialog() {
   const [open, setOpen] = React.useState(false);
@@ -39,75 +40,127 @@ export default function FormDialog() {
           />
         </svg>
       </Button>
-      <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>Create event</DialogTitle>
-        <DialogContent>
-          <TextField
-            autoFocus
-            margin="dense"
-            id="eventNameField"
-            label="Event name"
-            type="text"
-            fullWidth
-            variant="standard"
-          />
-          <label for="dateField">Date: </label>
-          <TextField
-            autoFocus
-            margin="dense"
-            id="dateField"
-            label=""
-            type="datetime-local"
-            fullWidth
-            variant="standard"
-          />
 
-          <label for="category">Category: </label>
-          <select id="category" name="categoryField">
-            <option value="Athletics">Athletics</option>
-            <option value="Academic">Academic</option>
-            <option value="Entertainment">Entertainment</option>
-            <option value="Food">Food</option>
-            <option value="Cultural">Cultural</option>
-          </select>
-          <label for="eventType">Event type: </label>
-          <select id="eventType" name="eventTypeField">
-            <option value="inperson">in-person</option>
-            <option value="online">online</option>
-          </select>
-          <label for="eventPoster">Poster: </label>
-          <input
-            type="url"
-            name="eventPoster"
-            id="eventPoster"
-            placeholder="https://example.com"
-            pattern="https://.*"
-            size="30"
-            required
-          ></input>
-          <TextField
-            autoFocus
-            margin="dense"
-            id="eventDescriptionField"
-            label="Description"
-            type="text"
-            fullWidth
-            variant="standard"
-          />
-          <TextField
-            autoFocus
-            margin="dense"
-            id="eventLocationField"
-            label="Location"
-            type="text"
-            fullWidth
-            variant="standard"
-          />
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={handleClose}>Create Event</Button>
-        </DialogActions>
+      <Dialog open={open} onClose={handleClose}>
+        <div className="text-black dark:text-white dark:bg-gray-900 flex flex-row">
+          <div>
+            <DialogTitle className="flex flex-col items-center pb-10">
+              Create event
+            </DialogTitle>
+            <DialogContent>
+              <TextField
+                autoFocus
+                margin="dense"
+                id="eventNameField"
+                label="Event name"
+                type="text"
+                fullWidth
+                variant="standard"
+                InputLabelProps={{
+                  className: "text-black dark:text-white",
+                }}
+                InputProps={{
+                  className: "text-black dark:text-white",
+                }}
+              />
+
+              <TextField
+                margin="dense"
+                id="dateField"
+                label=""
+                type="datetime-local"
+                fullWidth
+                variant="standard"
+                sx={{
+                  input: { color: "white" },
+                }}
+              />
+
+              <div className="max-w-sm py-3">
+                <label for="category">Category: </label>
+                <select
+                  id="category"
+                  name="categoryField"
+                  className="dark:border-gray-600 dark:placeholder-gray-400 dark:bg-gray-700"
+                >
+                  <optgroup className="backgroundColor:black">
+                    <option value="Athletics" className="Black">
+                      Athletics
+                    </option>
+                    <option value="Academic">Academic</option>
+                    <option value="Entertainment">Entertainment</option>
+                    <option value="Food">Food</option>
+                    <option value="Cultural">Cultural</option>
+                  </optgroup>
+                </select>
+              </div>
+              <div className="max-w-sm py-3">
+                <label for="eventType">Event type: </label>
+                <select
+                  id="eventType"
+                  name="eventTypeField"
+                  className="dark:border-gray-600 dark:placeholder-gray-400 dark:bg-gray-700"
+                >
+                  <option value="inperson">in-person</option>
+                  <option value="online">online</option>
+                </select>
+              </div>
+              <div className="max-w-sm py-2">
+                <label for="eventPoster">Poster: </label>
+                <TextField
+                  id="eventPoster"
+                  label=""
+                  type="url"
+                  placeholder="https://example.com/poster.png"
+                  pattern="https://.*"
+                  variant="standard"
+                  InputLabelProps={{
+                    className: "text-black dark:text-white",
+                  }}
+                  InputProps={{
+                    className: "text-black dark:text-white",
+                  }}
+                />
+              </div>
+              <div className="max-w-sm py-2">
+                <TextField
+                  margin="dense"
+                  id="eventDescriptionField"
+                  label="Description"
+                  type="text"
+                  fullWidth
+                  variant="standard"
+                  InputLabelProps={{
+                    className: "text-black dark:text-white",
+                  }}
+                  InputProps={{
+                    className: "text-black dark:text-white",
+                  }}
+                />
+              </div>
+              <div className="max-w-sm py-2">
+                <TextField
+                  margin="dense"
+                  id="eventLocationField"
+                  label="Location"
+                  type="text"
+                  fullWidth
+                  variant="standard"
+                  InputLabelProps={{
+                    className: "text-black dark:text-white",
+                  }}
+                  InputProps={{
+                    className: "text-black dark:text-white",
+                  }}
+                />
+              </div>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={handleClose}>Cancel</Button>
+              <Button onClick={handleClose}>Create Event</Button>
+            </DialogActions>
+          </div>
+        </div>
       </Dialog>
     </div>
   );
