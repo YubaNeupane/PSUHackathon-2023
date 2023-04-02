@@ -22,39 +22,35 @@ export const getEventId = async (req, res) => {
   }
 };
 
-
-export const addEvent = async(req, res) => {
-    console.log(req.body)
-    const {name, creatorName, date, category, eventType, description } = req.body;
-  try{
-    if(!name){
-        return res
-        .status(400)
-        .json({ error: "Event has to have a name" });
+export const addEvent = async (req, res) => {
+  const { name, time, description, location, poster, category, type } =
+    req.body;
+  try {
+    if (!name) {
+      return res.status(400).json({ error: "Event has to have a name" });
     }
-    if(!date){
-        return res
-        .status(400)
-        .json({ error: "Event must have a date" });
+    if (!time) {
+      return res.status(400).json({ error: "Event must have a date" });
     }
 
-    if(!description){
-        return res
-        .status(400)
-        .json({ error: "Description is empty" });
+    if (!description) {
+      return res.status(400).json({ error: "Description is empty" });
     }
     const result = await EventModal.create({
-        name: name,
-        creatorName: creatorName,
-        date: date,
-        category: category,
-        eventType: eventType,
-        description: description,
-        });
-    return res.status(201).json(result);
-    } catch (error) {
-        console.log(error)
-        res.status(500).json({ error: "Something went wrong" });
-    }
-};
+      name: name,
+      creatorId: req.body.id,
+      location: location,
+      description: description,
+      poster: poster,
+      category: category,
+      time: time,
+      type: type,
+    });
 
+    const event = await EventModal.find({});
+    return res.status(201).json(event);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: "Something went wrong" });
+  }
+};

@@ -10,3 +10,13 @@ export const getAllEvents = () => async (dispatch) => {
     console.log(error);
   }
 };
+
+export const createEvent = (input) => async (dispatch) => {
+  try {
+    console.log(input);
+    const { data } = await API.createEvent({ ...input });
+    dispatch(dispatchEvents.setEvents({ ...data }));
+  } catch (error) {
+    console.log(error);
+  }
+};
