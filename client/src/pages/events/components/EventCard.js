@@ -1,4 +1,4 @@
-import TopNavigation from "../../Dashboard/Components/TopNavigation";
+import TopNavigation from "../../Dashboard/Components/EventNavigation";
 
 const EventCard = () => {
   return (
