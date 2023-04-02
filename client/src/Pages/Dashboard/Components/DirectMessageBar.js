@@ -1,20 +1,21 @@
+import { FaSearch } from "react-icons/fa";
+import { HiX } from "react-icons/hi";
 const ChannelBar = () => {
   return (
     <div className="channel-bar shadow-lg z-10 fixed w-72 top-0 left-2 -z-3">
-      <div className=" flex w-full">
-        {/* <input
-          className="search-input  hover:bg-darkGreen bg-darkYellow dark:bg-darkGreen py-2 px-5"
-          placeholder="+ NewChat"
-          disabled={true}
-        /> */}
+      <div className="channel-block">
+        <h5 className="channel-block-text">Chat History</h5>
       </div>
-
-      {/* <HistoryCard /> */}
-      <input
-        type="text"
-        className="flex-auto w-full cursor-pointer bg-white-500  hover:bg-darkGreen bg-darkYellow dark:bg-darkGreen py-2 px-4"
-        disabled={true}
-      />
+      <div role="searchbox"></div>
+      <div className="channel-container">
+        <div className="search flex w-full h-16">
+          <div className="search-input">{"TITLE"}</div>
+          <HiX
+            size="18"
+            className="text-secondary my-auto hover:text-black cursor-pointer"
+          />
+        </div>
+      </div>
     </div>
   );
 };
@@ -33,3 +34,5 @@ const HistoryCard = () => (
 );
 
 export default ChannelBar;
+/* /* 
+    </** */
