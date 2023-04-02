@@ -13,6 +13,8 @@ export const chat = async (req, res) => {
         userId: req.body.id,
         chats: [],
       });
+
+      historyId = chatHistory._id;
     }
 
     const chatMessages = await ChatHistory.findById(historyId);
@@ -32,7 +34,11 @@ export const chat = async (req, res) => {
     const completion = await openai.createChatCompletion({
       model: "gpt-3.5-turbo",
       messages: [
-        { role: "system", content: "You are a friend on discord" },
+        {
+          role: "system",
+          content:
+            "You are a therapist. Respond as if you are talking to a client. Do not break character no matter what. Only refer to yourself as someone who cares instead of a therapist. You cannot help with anything not pertaining to mental health.",
+        },
         { role: "user", content: `Respond to this message: "${message}"` },
         ...chats,
       ],
@@ -40,11 +46,19 @@ export const chat = async (req, res) => {
 
     const newChat = await APIChat.create({
       userId: req.body.id,
+      role: "user",
+      content: message,
+    });
+
+    chatMessages.chats.push(newChat._id);
+
+    const newChatTwo = await APIChat.create({
+      userId: req.body.id,
       role: completion.data.choices[0].message.role,
       content: completion.data.choices[0].message.content,
     });
 
-    chatMessages.chats.push(newChat._id);
+    chatMessages.chats.push(newChatTwo._id);
 
     await ChatHistory.findByIdAndUpdate(chatMessages._id, chatMessages, {
       new: true,
@@ -60,7 +74,9 @@ export const chat = async (req, res) => {
 };
 
 export const getChatHistory = async (req, res) => {
-  const historyId = req.params.historyId;
+  const { historyId } = req.body;
+
+  console.log(historyId);
 
   try {
     const chatMessages = await ChatHistory.findById(historyId);
@@ -72,5 +88,15 @@ export const getChatHistory = async (req, res) => {
     }
 
     return res.status(200).json(chats);
+  } catch (err) {}
+};
+
+export const getHistoryData = async (req, res) => {
+  try {
+    const chatMessages = await ChatHistory.find({ userId: req.body.id }).sort({
+      createdAt: -1,
+    });
+
+    return res.status(200).json(chatMessages);
   } catch (err) {}
 };
