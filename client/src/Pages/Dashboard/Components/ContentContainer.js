@@ -5,6 +5,7 @@ import moment from "moment";
 import { useParams } from "react-router";
 import { useSelector } from "react-redux";
 import Spinner from "../../../components/Spinner";
+import therapist from "../../../resources/images/home/Therapist.svg";
 
 const ContentContainer = ({ location, sendMe, sendChatGptMessage }) => {
   const handleSendMessage = (message) => {
@@ -167,11 +168,16 @@ const Post = ({ name, timestamp, text }) => {
   return (
     <div className={"post"}>
       <div className="avatar-wrapper">
-        <img
-          src={`https://avatars.dicebear.com/api/open-peeps/${111}.svg`}
-          alt=""
-          className="avatar"
-        />
+        {name !== "ChatGPT" ? (
+          <img
+            name="Me"
+            src={`https://avatars.dicebear.com/api/open-peeps/${111}.svg`}
+            alt=""
+            className="avatar"
+          />
+        ) : (
+          <img name="Me" src={therapist} alt="" className="avatar" />
+        )}
       </div>
 
       <div className="post-content">
