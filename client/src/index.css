@@ -175,6 +175,11 @@
     mr-auto ml-4 my-auto align-middle;
   }
 
+  .channel-block-cat-text {
+    @apply text-lg tracking-wider font-bold 
+    text-gray-600 dark:text-gray-400 
+    mr-auto ml-2 my-auto align-middle;
+  }
   .dropdown {
     @apply m-0 w-full px-2 pb-2
     transition duration-300 ease-in-out;
