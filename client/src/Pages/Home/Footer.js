@@ -7,13 +7,11 @@ export default function Footer() {
       id="footer"
     >
       <div>
-        <h3 className="text-black font-extrabold ">
-          Spring HackPSU 2023
-        </h3>
+        <h3 className="text-black font-extrabold ">Spring HackPSU 2023</h3>
       </div>
       <div>
         <h3 className="text-black font-extrabold ">
-          Yuba Neupane, Mateen Shaik, Kevin Muirhead, Ghana Chuwan
+          Yuba Neupane, Mateen Shaik, Kevin Muirhead, Ghana Chuwan, Saif Alkaabi
         </h3>
       </div>
     </div>

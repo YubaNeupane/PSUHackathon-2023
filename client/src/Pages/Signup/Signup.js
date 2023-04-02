@@ -3,8 +3,8 @@ import image1 from "../../resources/images/signup/image1.svg";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { errorFound } from "../../redux/reducers/userSlice";
-import LoginSignupInput from "./../../components/LoginSignupInput";
-import LoginSignupButton from "./../../components/LoginSignupButton";
+import LoginSignupInput from "../../components/LoginSignupInput";
+import LoginSignupButton from "../../components/LoginSignupButton";
 import { signUp } from "../../redux/actions/userActions";
 
 export default function Signup({ showOpenAppButton }) {

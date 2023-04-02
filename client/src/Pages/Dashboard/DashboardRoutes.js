@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router";
 import { Routes, Route, useLocation } from "react-router-dom";
-import SetNewPasswordPage from "../SetNewPassword/SetNewPasswordPage";
+import SetNewPasswordPage from "../SetNewPassword/SetNewPasswordPage.js";
 import Dashboard from "./Dashboard";
 
 export default function DashboardRoutes({ currentUser }) {
@@ -12,6 +12,7 @@ export default function DashboardRoutes({ currentUser }) {
     if (!location.pathname.includes("user/password-reset")) {
       navigate("/");
     }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentUser]);
 
