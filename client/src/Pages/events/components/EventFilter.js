@@ -19,12 +19,12 @@ const EventFilter = () => {
           <input className="search-input" type="text" placeholder="Search..." />
           <FaSearch size="18" className="text-secondary my-auto" />
         </div>
-        <div className="category flex w-full">
+        <div className="categoryBox flex w-full">
           <div className="channel-block">
             <h5 className="channel-block-cat-text">Category</h5>
           </div>
         </div>
-        <div className="category flex w-full px-5 -mt-4 bg-white rounded-lg">
+        <div className="category flex w-full px-5 -mt-4 bg-gray-600 text-white  rounded-lg pb-2">
           <CheckBoxGroup
             selectedValues={[]}
             remove={"true"}
@@ -37,7 +37,21 @@ const EventFilter = () => {
             ]}
           />
         </div>
-        <Dropdown header="Random" selections={random} />
+        <div className="eventTypeBox flex w-full">
+          <div className="channel-block">
+            <h5 className="channel-block-cat-text">Event Type</h5>
+          </div>
+        </div>
+        <div className="eventType flex w-full px-5 -mt-4 bg-gray-600 text-white  rounded-lg pb-2">
+          <CheckBoxGroup
+            selectedValues={[]}
+            remove={"true"}
+            options={[
+              { value: 0, label: "Online" },
+              { value: 1, label: "In-Person" },
+            ]}
+          />
+        </div>
       </div>
     </div>
   );
